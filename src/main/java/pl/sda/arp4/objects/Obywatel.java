@@ -2,29 +2,18 @@ package pl.sda.arp4.objects;
 
 public class Obywatel {
 
-    private String Imie;
+    private String imie;
     private int pesel;
 
-    public String getImie() {
-        return Imie;
-    }
-
-    public int getPesel() {
-        return pesel;
-    }
-
-    public void setImie(String imie) {
-        Imie = imie;
-    }
-
-    public void setPesel(int pesel) {
+    public Obywatel(String imie, int pesel) {
+        this.imie = imie;
         this.pesel = pesel;
     }
 
     @Override
     public String toString() {
         return "Obywatel{" +
-                "Imie='" + Imie + '\'' +
+                "Imie='" + imie + '\'' +
                 ", pesel=" + pesel +
                 '}';
     }

@@ -1,4 +1,4 @@
-package pl.sda.arp4.objects;
+package pl.sda.arp4.objects.modele;
 import java.util.Scanner;
 /*
 
@@ -31,7 +31,6 @@ public class MainObywatel {
               String imie = scanner.nextLine();
               System.out.println("Podaj PESEL: ");
               int pesel = scanner.nextInt();
-
 
               Obywatel obywatel1 = new Obywatel(imie, pesel);
               System.out.println(obywatel1);

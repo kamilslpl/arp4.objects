@@ -2,7 +2,7 @@ package pl.sda.arp4.objects;
 
 import java.util.Scanner;
 
-public class Main {
+public class MainZBoolean {
     public static void main(String[] args) {
 // wypisanie wszystkich opcji ENUM
         for (RodzajPojazdu rodzaj : RodzajPojazdu.values()) {
@@ -13,13 +13,16 @@ public class Main {
 
         RodzajPojazdu zmienna = null;
 
-        while(zmienna == null) {
+        boolean czyUstawiona = false;
+
+        while(!czyUstawiona) {
             System.out.println("Podaj rodzaj pojazdu: ");
             String rodzajString = scanner.next();
 
 
             try {
                 zmienna = RodzajPojazdu.valueOf(rodzajString.toUpperCase());
+                czyUstawiona = true;
             } catch (IllegalArgumentException iae) {
                 System.out.println("Wybrana opcja nie istnieje...");
             }

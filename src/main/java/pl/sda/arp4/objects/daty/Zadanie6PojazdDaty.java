@@ -2,6 +2,8 @@ package pl.sda.arp4.objects.daty;
 
 import pl.sda.arp4.objects.RodzajPojazdu;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 /*
 
@@ -22,7 +24,6 @@ OSOBOWY - cena 3.2
         Po tym odczytaj od użytkownika linię tekstu lub słowo. Jeśli użytkownik wpisze: “wyjazd” to program powinien obliczyć ile czasu minęło od momentu zarejestrowania wjazdu do momentu wpisania “wyjazd” i obliczyć opłatę.
         Wypisz wynik obliczenia. (edited)
 */
-
 
 public class Zadanie6PojazdDaty {
     public static void main(String[] args) {
@@ -51,5 +52,25 @@ public class Zadanie6PojazdDaty {
         System.out.println(rodzajPojazdu);
         PojazdData nowypojazd = new PojazdData(numerrejstracyjny, rodzajPojazdu);
 
+        String wpisaneslowo;
+        do{
+            System.out.println("Wpisz wyjazd aby opuscic autostrade: ");
+            wpisaneslowo = scanner.nextLine();
+        }while (!wpisaneslowo.equals("wyjazd"));
+
+        // wczytalismy wjazd
+        LocalDateTime czasWyjazdu = LocalDateTime.now();
+
+        // ustawiamy czasWyjazdu
+        nowypojazd.setCzasWyjazdu(czasWyjazdu);
+
+        // oblicznay czas przejazdu
+        Duration czasPrzejazdu = nowypojazd.obliczCzasPrzejazdu();
+
+double kwotaDoZaplaty = (czasPrzejazdu.getSeconds()/60.0) * nowypojazd.getRodzajPojazdu().getCena();
+String komunikat = String.format("Kwota do zaplaty to: %.2f, czas spedzony to: %d s", kwotaDoZaplaty, czasPrzejazdu.getSeconds());
+        System.out.println("Twoj czas przejazdu: " + czasPrzejazdu);
+        System.out.println("Kwota do zaplaty to: " +kwotaDoZaplaty);
+        System.out.println(komunikat);
     }
 }

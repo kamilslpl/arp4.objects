@@ -1,5 +1,6 @@
 package pl.sda.arp4.objects.daty;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class PojazdData {
@@ -16,6 +17,15 @@ public class PojazdData {
         this.czasWjazdu = LocalDateTime.now();
         System.out.println( "Pojazd wjechal na autostrade o: " +czasWjazdu );
 
+    }
+
+    public void setCzasWyjazdu(LocalDateTime czasWyjazdu) {
+        this.czasWyjazdu = czasWyjazdu;
+    }
+
+    public Duration obliczCzasPrzejazdu(){
+        Duration czasPrzejazdu = Duration.between(czasWjazdu, czasWyjazdu);
+        return czasPrzejazdu;
     }
 
     public String getNumerRejestracyjny() {

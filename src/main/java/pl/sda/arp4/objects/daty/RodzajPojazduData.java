@@ -10,10 +10,9 @@ public enum RodzajPojazduData {
     public double getCena() {
         return cena;
     }
-
     RodzajPojazduData(double cena) {
         this.cena = cena;
 
-
     }
+
 }
